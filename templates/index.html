@@ -1,0 +1,18 @@
+{% load static %} <!--load folder 'static' into the page-->
+
+<div>
+    <a href="{% url 'make_post' %}"> Make Post</a>
+</div>
+
+<div>
+    {% for post in object_list %} 
+    <!--object_list: model in ListView will be transfered here as a list when called-->
+        <!--to detail of an image-->
+        <a href="{% url 'post_detail' post.id %}"> 
+        <!--post_detail defined in urls, id defined in migrate-->
+            <img src="/{{post.image}}"> <!--grammar in django-->
+            <!--go through every post in object_list, render its image-->
+            <!--forward slash: connect the route after localhost: 8000-->
+        </a>
+    {% endfor %}
+</div>

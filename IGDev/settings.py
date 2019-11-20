@@ -120,3 +120,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+# told server where to find files in 'static'
+# since url directly access to app IG but 'static' is in project IGDev folder
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
