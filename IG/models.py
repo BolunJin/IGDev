@@ -1,4 +1,8 @@
 from django.db import models
+
+# used for custom user model
+from django.contrib.auth.models import AbstractUser
+
 from imagekit.models import ProcessedImageField
 
 from django.urls import reverse
@@ -23,3 +27,13 @@ class Post(models.Model):
         # traceback url correspond to name "[string]"
         # provide params in list to url
         return reverse("post_detail", args=[str(self.id)]) 
+
+class IGUser(AbstractUser):
+    profile_pic = ProcessedImageField(
+        upload_to='static/images/profiles',
+        # image format
+        format='JPEG',
+        options={'quality':100},
+        blank=True,
+        null=True
+    )

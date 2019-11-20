@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-
+# app level url, handle Post-related issues
 # Everytime adding a new view, need to update in urls.py
 from IG.views import (HelloWorld, PostsView, PostDetailView, PostCreateView, PostUpdateView,
                         PostDeleteView)
