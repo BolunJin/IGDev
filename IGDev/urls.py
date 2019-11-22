@@ -21,7 +21,7 @@ from IG.views import SignUp
 urlpatterns = [
     path('admin/', admin.site.urls), # superusername: BolunJin
     # if input start by "IG", let app "IG.urls" handle
-    path('IG/', include('IG.urls')),
+    path('', include('IG.urls')),
     # if input start by "auth", let app "django.contrib.urls" handle
     path('auth/', include('django.contrib.auth.urls')),
     path('auth/signup/', SignUp.as_view(), name='signup')

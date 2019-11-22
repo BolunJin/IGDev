@@ -18,10 +18,10 @@ from django.urls import include, path
 # app level url, handle Post-related issues
 # Everytime adding a new view, need to update in urls.py
 from IG.views import (HelloWorld, PostsView, PostDetailView, PostCreateView, PostUpdateView,
-                        PostDeleteView)
+                        PostDeleteView, addLike, addComment)
 
 urlpatterns = [
-    path('', HelloWorld.as_view(), name='helloworld'),
+    path('helloworld', HelloWorld.as_view(), name='helloworld'),
     path('posts/', PostsView.as_view(), name = 'posts'),
     # in detail, need to add an integer primary key after the post
     # to identify the certain post (cannot identify by title or image)
@@ -30,4 +30,6 @@ urlpatterns = [
     path('posts/new/', PostCreateView.as_view(), name='make_post'),
     path('posts/update/<int:pk>/', PostUpdateView.as_view(), name = 'post_update'),
     path('posts/delete/<int:pk>/', PostDeleteView.as_view(), name = 'post_delete'),
+    path('like', addLike, name='addLike'),
+    path('comment', addComment, name='addComment'),
 ]
