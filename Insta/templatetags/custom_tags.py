@@ -2,7 +2,7 @@ import re
 
 from django import template
 from django.urls import NoReverseMatch, reverse
-from IG.models import Like
+from Insta.models import Like
 
 
 register = template.Library()

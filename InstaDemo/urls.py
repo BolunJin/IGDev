@@ -1,4 +1,4 @@
-"""IGDev URL Configuration
+"""InstaDemo URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -14,15 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
-
-from IG.views import SignUp
+from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls), # superusername: BolunJin
-    # if input start by "IG", let app "IG.urls" handle
-    path('', include('IG.urls')),
-    # if input start by "auth", let app "django.contrib.urls" handle
-    path('auth/', include('django.contrib.auth.urls')),
-    path('auth/signup/', SignUp.as_view(), name='signup')
+    path('admin/', admin.site.urls),
+    path('', include('Insta.urls')),
+    path('auth/', include('django.contrib.auth.urls'))
 ]
